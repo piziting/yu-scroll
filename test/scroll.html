@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>scroll事件</title>
+    <style>
+    div {
+        height: 300px;
+    }
+    </style>
+</head>
+
+<body>
+    <div style="height: 300px;" id="test">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+    <script src="../dist/scroll.min.js"></script>
+    <script>
+    YU.scroll(function() {
+        console.log('滚动');
+    });
+    </script>
+</body>
+
+</html>

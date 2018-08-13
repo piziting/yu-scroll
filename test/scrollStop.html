@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>scroll停止</title>
+    <style>
+    div {
+        height: 300px;
+    }
+    </style>
+</head>
+
+<body>
+    <div style="height: 300px;" id="test">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+    <script src="../dist/scrollStop.min.js"></script>
+    <script>
+    YU.scrollStop(function() {
+        console.log('滚动停止');
+    });
+    </script>
+</body>
+
+</html>
