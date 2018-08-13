@@ -1,6 +1,10 @@
 # yu-scroll
 
-window或元素内滚动停止事件和滚动事件性能优化调用，不依赖任何框架，纯js
+window或元素内滚动停止事件scrollStop和滚动事件scroll性能优化封装，不依赖任何框架，纯js
+#### 特点
+1. 自定义事件scrollStop
+2. 针对频繁触发scroll事件进行性能优化
+3. 纯javascript
 
 #### 使用说明
 
