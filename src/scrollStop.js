@@ -19,6 +19,19 @@
          return YU;
      }
  })();
+ //防抖
+
+ YU.debounce = function(before, after, wait) {
+     var timer;
+     return function() {
+         before && before();
+         timer && clearTimeout(timer);
+         timer = setTimeout(function() {
+             after && after();
+             timer = null;
+         }, wait);
+     }
+ }
 
  YU.scrollStop = function(callback, ele) {
      var obj = {
@@ -29,15 +42,10 @@
              var _self = this;
              var timer;
              var scrollEle = _self.ele == document.documentElement || document.body ? window : _self.ele;
-             YU.addEvent(scrollEle, 'scroll', function() {
-                 //防抖：防止快速滚动时不断执行回调
-                 timer && clearTimeout(timer);
-                 timer = setTimeout(function() {
-                     _self.stop();
-                     timer = null;
-                 }, 300);
-                 _self.pre = _self.ele.scrollTop;
-             });
+             YU.addEvent(scrollEle, 'scroll',
+                 YU.debounce(function() { _self.pre = _self.ele.scrollTop; }, function() { _self.stop(); }, 500)
+             );
+
              YU.addEvent(_self.ele, 'scrollStop', callback);
          },
          stop: function() {
